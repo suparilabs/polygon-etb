@@ -1,0 +1,13 @@
+{
+  "name": "1-introduction-codebase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bignumber.js": "^9.0.1"
+  }
+}

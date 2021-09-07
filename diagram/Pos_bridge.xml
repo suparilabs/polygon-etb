@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2021-09-07T17:41:04.458Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="DTvtTSKrrYnRTAx6y3e9" version="14.8.0" type="google">
+  <diagram id="JP1so5UjKFPWHXDKGNzr" name="Page-1">
+    <mxGraphModel dx="1186" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;" edge="1" parent="1" source="JTkB2aFeM9PSo3PcvUUi-2" target="JTkB2aFeM9PSo3PcvUUi-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-2" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 17px&quot;&gt;Approve asset on Predicate contract on Ethereum mainnet (locks amount of tokens to be deposited)&amp;nbsp;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-3" value="&lt;b style=&quot;font-size: 17px&quot;&gt;(State Sync mechanism)&lt;/b&gt;&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 17px&quot;&gt;&lt;br&gt;Deposit asset by RootChainManager that triggers ChildChainManager on Polygon chain&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-5" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 17px&quot;&gt;ChildChainManager -&amp;gt; childToken.deposit() will mint token to user&#39;s account&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="670" y="50" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="109.5" as="sourcePoint" />
+            <mxPoint x="670" y="109.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;" edge="1" parent="1" source="JTkB2aFeM9PSo3PcvUUi-8" target="JTkB2aFeM9PSo3PcvUUi-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-8" value="&lt;b style=&quot;font-size: 17px&quot;&gt;Burn asset on polygon chain&amp;nbsp;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="30" y="250" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-9" value="&lt;b style=&quot;font-size: 17px&quot;&gt;Burn transaction get checkpointed on Ethereum mainnet by PoS validators&lt;/b&gt;&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 17px&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="350" y="250" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-10" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 17px&quot;&gt;RootChainManager.exit() on Ethereum mainnet to submit proof of burn transaction&lt;br&gt;(Verifies checkpoint inclusion and triggers predicate contract which has locked tokens to release the same to the account on Ethereum)&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="670" y="195" width="240" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="JTkB2aFeM9PSo3PcvUUi-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="309.5" as="sourcePoint" />
+            <mxPoint x="670" y="309.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,21 @@
+{
+  "name": "2-maticjs-codebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@maticnetwork/maticjs": "^2.0.45",
+    "@truffle/hdwallet-provider": "^1.5.0",
+    "bignumber.js": "^9.0.1",
+    "bn.js": "^5.2.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
+}

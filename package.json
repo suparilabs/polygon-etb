@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}

@@ -17,6 +17,7 @@ const App = () => {
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
   const [inputValue, setInputValue] = useState("");
+  const [amount, setInputAmount] = useState("");
   const [burnHash, setBurnHash] = useState("");
   const [maticProvider, setMaticProvider] = useState();
   const [ethereumprovider, setEthereumProvider] = useState();
@@ -38,6 +39,14 @@ const App = () => {
     {
       label: "ERC20",
       value: "ERC20",
+    },
+    {
+      label: "ERC721",
+      value: "ERC721",
+    },
+    {
+      label: "ERC1155",
+      value: "ERC1155",
     },
   ]);
   const [selectedBridgeOption, setSelectedBridgeOption] = useState({
@@ -172,7 +181,7 @@ const App = () => {
     const x = inputValue * 1000000000000000000;
     const x1 = x.toString();
     await maticPoSClient
-      .burnERC20(config.posWETH, x1, {
+      .burnERC20(config.posChildWETH, x1, {
         from: account,
       })
       .then((res) => {
@@ -229,8 +238,99 @@ const App = () => {
         console.log("exit o/p", res);
       });
   };
+  // POS ERC721 functionality
+
+  const depositERC721 = async () => {
+    const maticPoSClient = posClientParent();
+    const tokenId = inputValue.toString();
+    await maticPoSClient.approveERC721ForDeposit(
+      config.posRootERC721,
+      tokenId,
+      {
+        from: account,
+      }
+    );
+    await maticPoSClient.depositERC721ForUser(
+      config.posRootERC721,
+      account,
+      tokenId,
+      {
+        from: account,
+      }
+    );
+  };
+
+  const burnERC721 = async () => {
+    const maticPoSClient = posClientChild();
+    const tokenId = inputValue.toString();
+    await maticPoSClient
+      .burnERC721(config.posChildERC721, tokenId, {
+        from: account,
+      })
+      .then((res) => {
+        setBurnHash(res.transactionHash);
+      });
+  };
+
+  const exitERC721 = async () => {
+    const maticPoSClient = posClientParent();
+    await maticPoSClient
+      .exitERC721(inputValue, {
+        from: account,
+      })
+      .then((res) => {
+        console.log("exit o/p", res);
+      });
+  };
+
+  // POS ERC1155 functionality
+
+  const depositERC1155 = async () => {
+    const maticPoSClient = posClientParent();
+    const tokenId = inputValue.toString();
+    await maticPoSClient.approveERC1155ForDeposit(config.posRootERC1155, {
+      from: account,
+    });
+    await maticPoSClient.depositSingleERC1155ForUser(
+      config.posRootERC1155,
+      account,
+      tokenId,
+      amount,
+      {
+        from: account,
+      }
+    );
+  };
+
+  const burnERC1155 = async () => {
+    const maticPoSClient = posClientChild();
+    const tokenId = inputValue.toString();
+    await maticPoSClient
+      .burnSingleERC1155(config.posChildERC721, tokenId, amount, {
+        from: account,
+      })
+      .then((res) => {
+        setBurnHash(res.transactionHash);
+      });
+  };
+
+  const exitERC1155 = async () => {
+    const maticPoSClient = posClientParent();
+    await maticPoSClient
+      .exitSingleERC1155(inputValue, {
+        from: account,
+      })
+      .then((res) => {
+        console.log("exit o/p", res);
+      });
+  };
+
   const onchange = (e) => {
     setInputValue(e.target.value);
+  };
+
+  const onamountchange = (e) => {
+    setInputAmount(e.target.value);
   };
 
   // Plasma ether functionality
@@ -262,11 +362,9 @@ const App = () => {
 
   const confirmWithdrawEtherPlasma = async () => {
     const { matic } = await getMaticPlasmaParent();
-    await matic
-      .withdraw(inputValue, { from: account})
-      .then((res) => {
-        console.log("Confirm withdraw hash: ", res.transactionHash);
-      });
+    await matic.withdraw(inputValue, { from: account }).then((res) => {
+      console.log("Confirm withdraw hash: ", res.transactionHash);
+    });
   };
 
   const exitEtherPlasma = async () => {
@@ -379,6 +477,11 @@ const App = () => {
             </button>
 
             <br />
+            <label for="pos-inputValue">
+              {Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                ? `Amount in Ether for deposit or burn transaction hash to exit`
+                : `Amount of Ether to burn`}
+            </label>
             <input
               id="pos-inputValue"
               type="text"
@@ -433,6 +536,11 @@ const App = () => {
             </button>
 
             <br />
+            <label for="erc20-pos-inputValue">
+              {Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                ? `Amount of tokens to deposit or burn transaction hash to exit`
+                : `Amount of tokens to burn`}
+            </label>
             <input
               id="erc20-pos-inputValue"
               type="text"
@@ -440,6 +548,136 @@ const App = () => {
               name="inputValue"
               value={inputValue}
               onChange={onchange}
+              required
+            />
+            <p id="burnHash">{burnHash}</p>
+          </div>
+          <div
+            id="ERC721"
+            hidden={
+              selectedToken.label === "ERC721" &&
+              selectedBridgeOption.label === "Proof of Stake"
+                ? false
+                : true
+            }
+          >
+            <button
+              onClick={depositERC721}
+              disabled={
+                Networkid !== 0 && Networkid === config.MATIC_CHAINID
+                  ? true
+                  : false
+              }
+            >
+              Deposit
+            </button>
+
+            <button
+              onClick={burnERC721}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? true
+                  : false
+              }
+            >
+              burn
+            </button>
+
+            <button
+              onClick={exitERC721}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? false
+                  : true
+              }
+            >
+              exit
+            </button>
+
+            <br />
+            <label for="erc721-pos-inputValue">
+              {Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                ? `tokenId for deposit or burn transaction hash to exit`
+                : `TokenId to burn`}
+            </label>
+            <input
+              id="erc721-pos-inputValue"
+              type="text"
+              placeholder="value"
+              name="inputValue"
+              value={inputValue}
+              onChange={onchange}
+              required
+            />
+
+            <p id="burnHash">{burnHash}</p>
+          </div>
+          <div
+            id="ERC1155"
+            hidden={
+              selectedToken.label === "ERC1155" &&
+              selectedBridgeOption.label === "Proof of Stake"
+                ? false
+                : true
+            }
+          >
+            <button
+              onClick={depositERC1155}
+              disabled={
+                Networkid !== 0 && Networkid === config.MATIC_CHAINID
+                  ? true
+                  : false
+              }
+            >
+              Deposit
+            </button>
+
+            <button
+              onClick={burnERC1155}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? true
+                  : false
+              }
+            >
+              burn
+            </button>
+
+            <button
+              onClick={exitERC1155}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? false
+                  : true
+              }
+            >
+              exit
+            </button>
+
+            <br />
+            <label for="erc1155-pos-tokenId">
+              {Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                ? `tokenID for deposit or burn transaction hash for exit`
+                : `tokenId`}
+            </label>
+            <input
+              id="erc1155-pos-tokenId"
+              type="text"
+              placeholder="value"
+              name="inputValue"
+              value={inputValue}
+              onChange={onchange}
+              required
+            />
+            <br />
+            <label for="erc1155-pos-amount">Amount</label>
+            <input
+              id="erc1155-pos-amount"
+              type="text"
+              placeholder="value"
+              name="amount"
+              value={amount}
+              onChange={onamountchange}
               required
             />
             <p id="burnHash">{burnHash}</p>

@@ -31,7 +31,7 @@ const App = () => {
       value: "Plasma",
     },
   ]);
-  const [tokenTypes] = useState([
+  const [tokenTypes, setTokenTypes] = useState([
     {
       label: "Ether",
       value: "Ether",
@@ -424,6 +424,53 @@ const App = () => {
         console.log("Exit hash: ", res.transactionHash);
       });
   };
+
+  // Plasma ERC721 functionality
+  const depositERC721Plasma = async () => {
+    const { matic } = await getMaticPlasmaParent();
+    const tokenId = inputValue;
+    await matic.approveERC20TokensForDeposit(config.plasmaRootERC721, tokenId, {
+      from: account,
+    });
+    return matic.safeDepositERC721Tokens(config.plasmaRootERC721, tokenId, {
+      from: account,
+    });
+  };
+
+  const burnERC721Plasma = async () => {
+    const { matic } = await getMaticPlasmaChild();
+    const tokenId = inputValue;
+    matic
+      .startWithdrawForNFT(config.plasmaChildERC721, tokenId, {
+        from: account,
+      })
+      .then((res) => {
+        setBurnHash(res.transactionHash);
+        console.log(res.transactionHash);
+      });
+  };
+
+  const confirmWithdrawERC721Plasma = async () => {
+    const { matic } = await getMaticPlasmaParent();
+    matic
+      .withdrawNFT(inputValue, {
+        from: account,
+      })
+      .then((res) => {
+        setBurnHash(res.transactionHash);
+        console.log(res.transactionHash);
+      });
+  };
+
+  const exitERC721Plasma = async () => {
+    const { matic } = await getMaticPlasmaParent();
+    await matic
+      .processExits(config.plasmaRootERC721, { from: account })
+      .then((res) => {
+        console.log("Exit hash: ", res.transactionHash);
+      });
+  };
+
   if (loading === true) {
   } else {
     content = (
@@ -806,6 +853,65 @@ const App = () => {
             />
             <p id="burnHash">{burnHash}</p>
           </div>
+          <div
+            id="PlasmaERC721"
+            hidden={selectedToken.label === "ERC721" ? false : true}
+          >
+            <button
+              onClick={depositERC721Plasma}
+              disabled={
+                Networkid !== 0 && Networkid === config.MATIC_CHAINID
+                  ? true
+                  : false
+              }
+            >
+              Deposit
+            </button>
+
+            <button
+              onClick={burnERC721Plasma}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? true
+                  : false
+              }
+            >
+              burn
+            </button>
+            <button
+              onClick={confirmWithdrawERC721Plasma}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? false
+                  : true
+              }
+            >
+              Confirm Withdraw
+            </button>
+
+            <button
+              onClick={exitERC721Plasma}
+              disabled={
+                Networkid !== 0 && Networkid === config.ETHEREUM_CHAINID
+                  ? false
+                  : true
+              }
+            >
+              exit
+            </button>
+
+            <br />
+            <input
+              id="plasma-erc721-inputValue"
+              type="text"
+              placeholder="value"
+              name="inputValue"
+              value={inputValue}
+              onChange={onchange}
+              required
+            />
+            <p id="burnHash">{burnHash}</p>
+          </div>
         </div>
       </div>
     );
@@ -816,7 +922,44 @@ const App = () => {
       <Navbar account={account} />
       <div>
         <select
-          onChange={(e) => setSelectedBridgeOption({ label: e.target.value })}
+          onChange={(e) => {
+            setSelectedBridgeOption({ label: e.target.value });
+            if (e.target.value === "Plasma") {
+              setTokenTypes([
+                {
+                  label: "Ether",
+                  value: "Ether",
+                },
+                {
+                  label: "ERC20",
+                  value: "ERC20",
+                },
+                {
+                  label: "ERC721",
+                  value: "ERC721",
+                },
+              ]);
+            } else {
+              setTokenTypes([
+                {
+                  label: "Ether",
+                  value: "Ether",
+                },
+                {
+                  label: "ERC20",
+                  value: "ERC20",
+                },
+                {
+                  label: "ERC721",
+                  value: "ERC721",
+                },
+                {
+                  label: "ERC1155",
+                  value: "ERC1155",
+                },
+              ]);
+            }
+          }}
         >
           {bridgeOptions.map((item) => (
             <option key={item.value} value={item.value}>

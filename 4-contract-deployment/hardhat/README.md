@@ -9,8 +9,8 @@
 
 
 ### Deploy the smart contract on Polygon
-* npx hardhat run scripts/deploy.js --network polygon
+* `npx hardhat run scripts/deploy.js --network polygon`
 
 
 ### Interact the smart contract on Polygon
-* npx hardhat run scripts/deploy.js --network polygon
+* `npx hardhat run scripts/deploy.js --network polygon`

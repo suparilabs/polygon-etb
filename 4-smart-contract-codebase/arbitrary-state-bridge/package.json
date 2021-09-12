@@ -1,25 +1,24 @@
 {
-  "name": "fx-portal",
+  "name": "arbitrary-state-bridge",
   "version": "1.0.2",
-  "description": "FxPortal for Matic chain. No mapping. Seamless.",
+  "description": "State transfer from Ethereum to Polygon and back",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jdkanani/fx-portal.git"
+    "url": "git+https://github.com/suparilabs/polygon-etb.git"
   },
   "keywords": [
     "ethereum",
     "matic"
   ],
-  "author": "Jaynti Kanani <jdkanani@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jdkanani/fx-portal/issues"
+    "url": "https://github.com/suparilabs/polygon-etb/issues"
   },
-  "homepage": "https://github.com/jdkanani/fx-portal#readme",
+  "homepage": "https://github.com/suparilabs/polygon-etb#readme",
   "devDependencies": {
     "@maticnetwork/maticjs": "^2.0.45",
     "@nomiclabs/hardhat-ethers": "^2.0.1",
@@ -31,8 +30,5 @@
     "ethereum-waffle": "^3.2.1",
     "ethers": "^5.0.24",
     "hardhat": "^2.0.7"
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.2.0"
   }
 }

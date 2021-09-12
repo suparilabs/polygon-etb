@@ -1,4 +1,4 @@
-## Arbitrary State transfer between Ethereum and Matic
+## Permission-less arbitrary State transfer between Ethereum and Matic
 
 ### Getting started
 * run `yarn`

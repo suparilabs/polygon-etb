@@ -1,3 +1,4 @@
+require("dotenv").config();
 async function main() {
   const maticPOSClient = new require("@maticnetwork/maticjs").MaticPOSClient({
     maticProvider: "https://matic-mumbai.chainstacklabs.com", // replace if using mainnet

@@ -3,6 +3,10 @@
 ### Getting started
 * run `yarn`
 * Create `.env` file from `env.example` then add your private key and goerli rpc url.
+* run `npx remixd -s /absolute/path/to/project/directory --remix-ide https://remix-alpha.ethereum.org/` 
+* Go to https://remix-alpha.ethereum.org
+* Choose **localhost** from workspaces dropdown and click on **Connect**
+* You should be able to the project folder in the remix file explorer panel
 
 
 ### Resources

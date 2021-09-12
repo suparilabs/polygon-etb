@@ -4,7 +4,7 @@
 * create an empty directory
 * run `yarn -y init`
 * run `yarn add -D @remix-project/remixd@latest`
-* run `npx remixd -s //absolute/path/to/project/directory --remix-ide https://remix-alpha.ethereum.org/` 
+* run `npx remixd -s /absolute/path/to/project/directory --remix-ide https://remix-alpha.ethereum.org/` 
 * Go to https://remix-alpha.ethereum.org
 * Choose **localhost** from workspaces dropdown and click on **Connect**
 * You should be able to the project folder in the remix file explorer panel

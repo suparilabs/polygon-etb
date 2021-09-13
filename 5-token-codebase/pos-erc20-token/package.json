@@ -1,0 +1,16 @@
+{
+  "name": "pos-erc20-token",
+  "version": "1.0.0",
+  "description": "mapping erc20 token using PoS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suparilabs/polygon-etb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suparilabs/polygon-etb/issues"
+  },
+  "homepage": "https://github.com/suparilabs/polygon-etb#readme",
+  "devDependencies": {
+    "@remix-project/remixd": "^0.5.1"
+  }
+}

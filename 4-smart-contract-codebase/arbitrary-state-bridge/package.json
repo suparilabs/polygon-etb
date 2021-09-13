@@ -1,6 +1,6 @@
 {
   "name": "arbitrary-state-bridge",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "State transfer from Ethereum to Polygon and back",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,6 @@
     "ethereum",
     "matic"
   ],
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/suparilabs/polygon-etb/issues"
   },

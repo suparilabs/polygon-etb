@@ -1,0 +1,9 @@
+{
+  "name": "plasma-erc20-token",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@remix-project/remixd": "^0.5.2"
+  }
+}

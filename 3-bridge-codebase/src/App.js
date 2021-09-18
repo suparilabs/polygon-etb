@@ -205,7 +205,7 @@ const App = () => {
 
   const depositERC20 = async () => {
     const maticPoSClient = posClientParent();
-    const x = inputValue * 10000; // 18 decimals
+    const x = inputValue * 1000000000000000000; // 18 decimals
     const x1 = x.toString();
     await maticPoSClient.approveERC20ForDeposit(config.posRootERC20, x1, {
       from: account,
@@ -217,7 +217,7 @@ const App = () => {
 
   const burnERC20 = async () => {
     const maticPoSClient = posClientChild();
-    const x = inputValue * 10000;
+    const x = inputValue * 1000000000000000000;
     const x1 = x.toString();
     await maticPoSClient
       .burnERC20(config.posChildERC20, x1, {

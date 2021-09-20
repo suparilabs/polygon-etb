@@ -7,8 +7,8 @@
 
 ### Contract Deployments
 #### Matic mapped ERC20 token
-* posRootERC20 (goerli) : `0x3838d31127871fbAa96fdC2EebBD945d702e4A45` (`0x93e2CE316901D0a32a30A13DE7E99Cf0f14bb596`) (MATT)
-* posChildERC20 (mumbai) : `0xbC029e2F810155714132F53388Cd99838f3b93Cd`
+* posRootERC20 (goerli) : `0x93e2CE316901D0a32a30A13DE7E99Cf0f14bb596` (MATT)
+* posChildERC20 (mumbai) : ``
 
 #### Matic mapped custom ERC20 token
 

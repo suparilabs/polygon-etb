@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/suparilabs/polygon-etb#readme",
   "devDependencies": {
-    "@maticnetwork/maticjs": "^2.0.45",
+    "@maticnetwork/maticjs": "2.0.48",
     "@remix-project/remixd": "^0.5.1",
     "bn.js": "^5.2.0",
     "dotenv": "^8.2.0"

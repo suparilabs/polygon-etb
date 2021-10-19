@@ -52,7 +52,7 @@ function App() {
 
     // NOTE: dappId is no longer needed in latest version of Biconomy SDK
     const biconomy = new Biconomy(window.ethereum, {
-      apiKey: "Osri4Cg7o.42c8055b-1ca3-4639-8a58-54fce9c690c0",
+      apiKey: "lmLB2X2Tf.749071e1-028c-49d5-a22c-ab6d8354fcfd",
     });
 
     web3 = new Web3(biconomy);

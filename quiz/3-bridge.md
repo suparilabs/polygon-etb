@@ -46,7 +46,7 @@ The following questions are based on Ethereum↔Polygon bridge
 - [ ] call `depositEtherFor` function
 
 **10. Which of the following function of matic.js is used for submitting burn transaction hash to RootChainManager contract?**
-- [ ] exitERC20
-- [ ] burnERC20
-- [ ] depositERC20ForUser
-- [ ] approveERC20ForDeposit
+- [ ] `exitERC20`
+- [ ] `burnERC20`
+- [ ] `depositERC20ForUser`
+- [ ] `approveERC20ForDeposit`

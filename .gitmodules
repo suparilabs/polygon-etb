@@ -1,0 +1,3 @@
+[submodule "polygon-etb-solution"]
+	path = externals/polygon-etb-solution
+	url = https://github.com/suparilabs/polygon-etb-solution.git

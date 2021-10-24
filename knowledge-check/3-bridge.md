@@ -1,5 +1,5 @@
 ## Polygon bridge
-The following questions are based on Ethereum↔Polygon bridge
+The following questions does knowledge check on Ethereum↔Polygon bridge
 
 **1. Circulating supply of your token will change when it crosses the bridge.**
 - [ ] True

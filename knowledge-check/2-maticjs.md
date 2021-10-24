@@ -1,5 +1,5 @@
 ## Introduction to matic.js
-The following questions are based on the matic.js library
+The following questions does knowledge check on matic.js library
 
 **1. Which of the following is a convenience javascript library developed by Polygon team to interact with Polygon network?**
 - [ ] web3.js

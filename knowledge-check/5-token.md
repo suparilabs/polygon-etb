@@ -1,6 +1,5 @@
 ## Mapping tokens on Polygon bridges
-The following questions are related to mapping assets using Polygon's POS and Plasma bridges.
-
+The following questions does knowledge check on mapping assets using Polygon's POS and Plasma bridges.
 
 **1. In the case of Polygon Mintable tokens, assets are created on Polygon.**
 - [ ] True

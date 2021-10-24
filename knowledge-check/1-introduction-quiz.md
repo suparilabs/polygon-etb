@@ -1,5 +1,5 @@
 ## Introduction to Polygon
-The following questions are related to Polygon's security models, blockchain explorer and gas station.
+The following questions does knowledge on Polygon's security models, blockchain explorer and gas station.
 
 **1. List the three types of security models offered by Polygon.**
 

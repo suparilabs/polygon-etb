@@ -1,5 +1,5 @@
 ## Polygon smart contracts
-The following questions are related to smart contracts deployment and L1-L2 communication between Ethereum and Polygon
+The following questions does knowledge check on smart contracts deployment and L1-L2 communication between Ethereum and Polygon
 
 **1. Smart contracts deployable on Ethereum are not deployable on Polygon.**
 - [ ] True

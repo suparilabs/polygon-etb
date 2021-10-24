@@ -50,3 +50,17 @@ The following questions are based on Ethereum↔Polygon bridge
 - [ ] `burnERC20`
 - [ ] `depositERC20ForUser`
 - [ ] `approveERC20ForDeposit`
+
+**11. Checkpointing which represents all transactions of Polygon chain on Ethereum chain is done on contract of which chain**
+- [ ] Ethereum
+- [ ] Polygon
+
+**12. ETH on polygon network is a WETH(ERC20 Token)**
+- [ ] True
+- [ ] False
+
+**13. For depositing Ether from Ethereum to Polygon, which of the following is true?**
+- [ ] calling `depositEther` on `depositManagerContract`
+- [ ] calling `withdraw` function of `getERC20TokenContract`
+- [ ] calling `startExitWithBurntTokens` function of `erc20Predicate` contract.
+- [ ] calling the `processExits` function of `withdrawManager` contract

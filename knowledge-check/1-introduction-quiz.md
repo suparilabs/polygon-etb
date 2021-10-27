@@ -1,7 +1,11 @@
 ## Introduction to Polygon
 The following questions does knowledge on Polygon's security models, blockchain explorer and gas station.
 
-**1. List the three types of security models offered by Polygon.**
+**1. Which of the following are types of security models offered by Polygon.(Select all that apply)**
+- [ ] Proof of Stake security
+- [ ] Plasma security
+- [ ] Hybrid (Plasma + PoS)
+- [ ] All of the above
 
 **2. Which of the following are chains under polygon network? (Select all that apply)**
 - [ ] Kovan
@@ -34,7 +38,11 @@ The following questions does knowledge on Polygon's security models, blockchain 
 - [ ] handles delegation management including validator shares
 - [ ] handles Plasma contracts for MoreVP, including checkpoints/snapshots of sidechain state
 
-**8. Which are the three layers of Polygon network architecture?**
+**8. Which are layers of Polygon network architecture?(Select all that apply)**
+- [ ] Staking and Plasma smart contracts on Ethereum
+- [ ] Heimdall (Proof of Stake layer)
+- [ ] Bor (Block producer layer)
+- [ ] All of the above
 
 **9. Which of the following is true for a validator on Heimdall layer?(select all that apply)**
 - [ ] Validates all the blocks since the last checkpoint

@@ -11,4 +11,8 @@ The following questions does knowledge check on matic.js library
 - [ ] True
 - [ ] False
 
-**3. List the two API classes exported by the matic.js**
+**3. which API classes are exported by the matic.js?**
+- [ ] `MaticPlasmaClient`
+- [ ] `MaticPoSClient`
+- [ ] All of the above
+- [ ] None of the above

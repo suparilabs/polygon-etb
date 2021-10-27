@@ -33,7 +33,11 @@ The following questions does knowledge check on mapping assets using Polygon's P
 - [ ] `transfer`
 - [ ] `transferfrom `
 
-**7.  Explain in one line, what is token mapping in Polygon**
+**7.  In token mapping, the child token is deployed on ____ and root token is deployed on ______.**
+- [ ] Polygon, Ethereum
+- [ ] Ethereum, Polygon
+- [ ] Polygon, Polygon
+- [ ] Ethereum, Ethereum
 
 
 **8. Which function on ChildChain contract should be called to deploy child token on Polygon with restricted functionality?**
@@ -46,4 +50,8 @@ The following questions does knowledge check on mapping assets using Polygon's P
 - [ ] `mapToken`
 - [ ] `addPredicate`
 
-**10. Describe in 1-2 sentences, the key component of the plasma framework (fraud proofs)**
+**10. What is the key component in plasma framework that keeps the bridge secured?**
+- [ ] fraud proofs
+- [ ] check points
+- [ ] Bor
+- [ ] Heimdall
